@@ -23,3 +23,20 @@
 * **Postconditions:** Personalized greeting is displayed based on the command-line argument provided.
 
 
+# Use Case 3: Display "Hello" with Command-Line Argument or Default Message
+
+* **Description:** The app accepts a user's name as a command-line argument and displays a personalized greeting. If no name is provided, it defaults to "World". This use case combines the basic functionality from UC1 with the personalization from UC2, adding robustness through default handling.
+* **Disadvantages of Previous Use Case:** UC2 requires a command-line argument to work correctly. If the user runs the program without providing an argument, the application will crash with an `ArrayIndexOutOfBoundsException`. This makes the program fragile and less user-friendly. UC3 addresses this limitation by providing a sensible default value when no argument is supplied.
+* **Preconditions:** App is launched with or without a command-line argument.
+* **Main Flow:** 1. User runs the application with or without a name argument: `java HelloApp John` or `java HelloApp`
+  2. App checks if a command-line argument was provided
+  3. If an argument exists, app reads the name from `args[0]`
+  4. If no argument exists, app uses the default value "World"
+  5. App displays the personalized greeting
+  6. App terminates
+* **Postconditions:** Personalized greeting is displayed with either the provided name or the default "World".
+* **Hints:** Check the length of the `args` array before accessing elements. Use an if-else statement or ternary operator to assign the name based on argument availability. Test with and without command-line arguments to ensure both paths work correctly.
+* **Code Snippets Examples:** `String name = (args.length > 0) ? args[0] : "World";`
+* **Concepts Learned:** Conditional Logic, Ternary Operator, Array Length Checking, Default Values, Defensive Programming, String Concatenation, and Program Flexibility.
+
+
